@@ -1,11 +1,11 @@
 const express = require("express");
-const morgan = require("morgan");
+const routes = require("./routes/index");
 
 const app = express();
 
 
-app.use(morgan("dev"));
-//TODO:👋 enable morgan in dev only 👋
+app.use("/hotels", routes.hotelsRouter);
+app.use("/users", routes.usersRouter);
 
 app.use(express.json());
 app.use(
