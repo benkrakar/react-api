@@ -2,7 +2,6 @@
 En travaillant sur le même projet Mini booking
 
 ​
-
 La gestion des hôtels :
 
 ​
