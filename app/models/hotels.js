@@ -18,6 +18,25 @@ const hotelsShema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  rooms: [{
+    number: {
+      type: Number,
+      ref: "room"
+    },
+      size: {
+      type:String,
+      ref: "room"
+    },
+    description:{
+      type: String,
+      ref:"room"
+    },
+    img:{ 
+      data: Buffer, 
+      ref: String 
+   }
+
+  }]
 });
 
 module.exports = hotelsShema;
