@@ -1,31 +1,31 @@
 const User = require("../model/user");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
 const register = async (req, res) => {
-    let role
-    //if(req.body.role === 'admin'){res.status(401).json({message: 'you cant be admin'}}
-      });
-    if (req.params.role === "owner") {
-     role = "owner";
-    }else if(req.params.role === "client") {
-        role = "client";   
-    }
+    // let role
+    if(req.body.role === 'admin'){res.status(401).json({message: 'you cant be admin'})};
+    //   });
+    // if (req.params.role === "owner") {
+    //  role = "owner";
+    // }else if(req.params.role === "client") {
+    //     role = "client";   
+    // }
 
-  const salt = await bcrypt.genSalt(12);
+  // const salt = await bcrypt.genSalt(12);
     //man lahsan idar f lmodel
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  // const hashedPassword = await bcrypt.hash(req.body.password, salt);
     
-//t9dar dir  const newUser = await models.users.create(req.body);
+  const newUser = await models.users.create(req.body);
     
-  const user = await User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: hashedPassword,
-    role : role,
-  })
-    res.send(user)
+//   const user = await User.create({
+//     name: req.body.name,
+//     email: req.body.email,
+//     password: hashedPassword,
+//     role : role,
+//   })
+    res.send(newUser)
 };
 
 const login = async (req, res) => {
