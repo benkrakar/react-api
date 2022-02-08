@@ -46,5 +46,16 @@ exports.updateHotel = async (req, res) => {
   });
 };
 exports.deleteHotel = async (req, res) => {
-  console.log("deleteHotel");
+  const hotel = await models.hotels.findByIdAndDelete(req.params.id);
+  if (!hotel) {
+    res.status(404).json({
+      message: "hotel not found",
+    });
+  }
+  res.status(202).json({
+    status: "success",
+    data: {
+      hotel,
+    },
+  });
 };
