@@ -10,10 +10,7 @@ router
 router
   .route("/:id")
   .get(hotelsController.getHotel)
-
-router.route("/delete/:id").get(hotelsController.deleteHotel);
-router
-  .route("/update/:id")
-  .post(hotelsController.updateHotel);
+  .patch(hotelsController.updateHotel)
+  .delete(hotelsController.deleteHotel);
 
 module.exports = router;
