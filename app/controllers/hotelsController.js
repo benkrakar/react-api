@@ -1,15 +1,29 @@
-exports.getAllHotels= (req,res) => {
-  console.log("getAllHotels");
-}
-exports.getHotel = (req, res) => {
+const models = require("../models");
+exports.getAllHotels = async (req, res, next) => {
+  const hotels = await models.hotels.find();
+  res.status(200).json({
+    status: "success",
+    results: hotels.length,
+    data: {
+      hotels,
+    },
+  });
+};
+exports.getHotel = async (req, res) => {
   console.log("getHotel");
 };
-exports.createHotel = (req, res) => {
-  console.log("createHotel");
+exports.createHotel = async (req, res) => {
+   const hotels = await models.hotels.create(req.body);
+   res.status(200).json({
+     status: "success",
+     data: {
+       hotels,
+     },
+   });
 };
-exports.updateHotel = (req, res) => {
+exports.updateHotel = async (req, res) => {
   console.log("updateHotel");
 };
-exports.deleteHotel = (req, res) => {
+exports.deleteHotel = async (req, res) => {
   console.log("deleteHotel");
 };
