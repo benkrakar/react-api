@@ -7,11 +7,13 @@ router
   .route("/")
   .get(hotelsController.getAllHotels)
   .post(hotelsController.createHotel);
+router
+  .route("/:id")
+  .get(hotelsController.getHotel)
 
 router.route("/delete/:id").get(hotelsController.deleteHotel);
 router
   .route("/update/:id")
-  .get(hotelsController.getHotel)
   .post(hotelsController.updateHotel);
 
 module.exports = router;

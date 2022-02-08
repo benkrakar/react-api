@@ -10,7 +10,13 @@ exports.getAllHotels = async (req, res, next) => {
   });
 };
 exports.getHotel = async (req, res) => {
-  console.log("getHotel");
+   const hotel = await models.hotels.findById(req.params.id);
+   res.status(200).json({
+     status: "success",
+     data: {
+       hotel,
+     },
+   });
 };
 exports.createHotel = async (req, res) => {
    const hotels = await models.hotels.create(req.body);
