@@ -3,9 +3,9 @@ import Models from './index.js';
 
 const resirvationShema = new mongoose.Schema(
   {
-    review: {
+    reservation: {
       type: String,
-      required: [true, 'Review can not be empty'],
+      required: [true, 'reservation can not be empty'],
     },
 
     rating: {
@@ -20,12 +20,12 @@ const resirvationShema = new mongoose.Schema(
     room: {
       type: mongoose.Schema.ObjectId,
       ref: 'Room',
-      required: [true, 'Review must belong to a product'],
+      required: [true, 'reservation must belong to a product'],
     },
     user: {
       type: mongoose.Schema.ObjectId,
       ref: 'Users',
-      required: [true, 'Review must belong to a user'],
+      required: [true, 'reservation must belong to a user'],
     },
   },
   {

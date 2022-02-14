@@ -4,12 +4,12 @@ const hotelsShema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "categorie must have a name"],
+      required: [true, "hotel must have a name"],
       unique: true,
     },
     description: {
       type: String,
-      required: [true, "categorie must have a name"],
+      required: [true, "hotel must have a name"],
     },
     created_at: {
       type: Date,

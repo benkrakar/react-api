@@ -3,17 +3,17 @@ const roomsShema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'product must have a name'],
+      required: [true, 'room must have a name'],
       unique: true,
     },
     description: {
       type: String,
-      required: [true, 'product must have a description'],
+      required: [true, 'room must have a description'],
     },
     hotel: {
       type: mongoose.Schema.ObjectId,
       ref: 'Hotels',
-      required: [true, 'product must belong to a categorie'],
+      required: [true, 'room must belong to a hotel'],
     },
     price: {
       type: Number,
