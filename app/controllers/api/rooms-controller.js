@@ -3,7 +3,7 @@ import BaseController from '../../../core/controller/index.js';
 
 class RoomsController extends BaseController {
   constructor() {
-    super(models.products, 'reservations');
+    super(models.rooms, "reservations");
   }
 }
 

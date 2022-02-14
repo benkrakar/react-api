@@ -12,7 +12,7 @@ const roomsShema = new mongoose.Schema(
     },
     hotel: {
       type: mongoose.Schema.ObjectId,
-      ref: 'Categories',
+      ref: 'Hotels',
       required: [true, 'product must belong to a categorie'],
     },
     price: {
@@ -45,14 +45,14 @@ const roomsShema = new mongoose.Schema(
 
 roomsShema.virtual('reviews', {
   ref: 'Reviews',
-  foreignField: 'room',
+  foreignField: 'Rooms',
   localField: '_id',
 });
 
 roomsShema.pre(/^find/, function (next) {
   this.populate({
-    path: 'hotel',
-    select: 'name',
+    path: "hotel",
+    select: "name",
   });
   next();
 });

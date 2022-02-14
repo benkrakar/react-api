@@ -1,15 +1,15 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const hotelsShema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'categorie must have a name'],
+      required: [true, "categorie must have a name"],
       unique: true,
     },
     description: {
       type: String,
-      required: [true, 'categorie must have a name'],
+      required: [true, "categorie must have a name"],
     },
     created_at: {
       type: Date,
@@ -27,6 +27,5 @@ hotelsShema.virtual("rooms", {
   foreignField: "hotel",
   localField: "_id",
 });
-
 
 export default hotelsShema;
