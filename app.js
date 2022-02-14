@@ -1,21 +1,4 @@
-const express = require("express");
-const routes = require("./routes/index");
+import Server from "./server/index.js";
 
-const app = express();
-
-
-app.use("/hotels", routes.hotelsRouter);
-app.use("/users", routes.usersRouter);
-
-app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: false,
-  })
-);
-
-
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`app running on ${PORT} port`);
-});
+const app = new Server();
+app.start();
