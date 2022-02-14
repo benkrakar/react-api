@@ -20,7 +20,7 @@ const resirvationShema = new mongoose.Schema(
     room: {
       type: mongoose.Schema.ObjectId,
       ref: 'Room',
-      required: [true, 'reservation must belong to a product'],
+      required: [true, 'reservation must belong to a room'],
     },
     user: {
       type: mongoose.Schema.ObjectId,

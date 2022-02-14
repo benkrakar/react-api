@@ -1,6 +1,6 @@
 import UserAuth from '../../app/controllers/api/userAuth-controller.js';
 import auth from '../../app/middlewares/authentification.js';
-import uploadProductImage from '../../app/middlewares/imgsUpload.js';
+import uploadUserImage from '../../app/middlewares/imgsUpload.js';
 
 export default {
   group: {
@@ -22,8 +22,8 @@ export default {
       method: 'patch',
       path: '/',
       middlewares: [
-        uploadProductImage.image('user'),
-        uploadProductImage.resize,
+        uploadUserImage.image('user'),
+        uploadUserImage.resize,
       ],
       handler: UserAuth.updateMe,
     },

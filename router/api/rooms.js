@@ -1,6 +1,6 @@
 import RoomsController from '../../app/controllers/api/rooms-controller.js';
 import auth from '../../app/middlewares/authentification.js';
-import uploadProductImage from '../../app/middlewares/imgsUpload.js';
+import uploadRoomImage from '../../app/middlewares/imgsUpload.js';
 
 export default {
   group: {
@@ -28,8 +28,8 @@ export default {
       path: '/:id',
       middlewares: [
         auth(),
-        uploadProductImage.images('room'),
-        uploadProductImage.resize,
+        uploadRoomImage.images('room'),
+        uploadRoomImage.resize,
       ],
       handler: RoomsController.update,
     },
@@ -40,18 +40,6 @@ export default {
       handler: RoomsController.delete,
     },
 
-    //*implementing nested routes for reviews
-    // {
-    //   method: 'post',
-    //   middlewares: [auth],
-    //   path: '/:productId/reviews',
-    //   handler: ReviewsController.createReview,
-    // },
-    // {
-    //   method: 'get',
-    //   middlewares: [auth],
-    //   path: '/:productId/reviews',
-    //   handler: ReviewsController.getReviews,
-    // },
+   
   ],
 };
