@@ -28,7 +28,7 @@ export default {
       path: '/:id',
       middlewares: [
         auth(),
-        uploadProductImage.images('product'),
+        uploadProductImage.images('room'),
         uploadProductImage.resize,
       ],
       handler: RoomsController.update,

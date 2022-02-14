@@ -31,8 +31,9 @@ class AuthController {
     });
   }
 
-  async register(req, res) {
-    const filtredBody = FilterData(req.body, 'name', 'email', 'password');
+  async register(req, res, next) {
+    const filtredBody = FilterData(req.body, 'name', 'email', 'password','role');
+    if(filtredBody.role === 'admin') { return next(new AppException("you cant be admin ", 403));}
     const newUser = await models.users.create(filtredBody);
 
     newUser.password = undefined;
